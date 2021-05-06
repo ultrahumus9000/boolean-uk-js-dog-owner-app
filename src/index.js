@@ -14,3 +14,76 @@ console.log(data);
 // Challenge
 // You might have noticed there's a plus button at the beginning of the top row. Add the behaviour to it. When clicked, it should replace the main card with a form to add a new dog to the list. 
 // You'll find a template for the form on the HTML page. Once the form is submitted, add the new dog to the beginning of the list, right next to the plus button.
+
+//  create list with id
+let ulEl= document.querySelector(".dogs-list")
+let mainEl = document.querySelector('.main')
+
+
+for (let i = 0; i<data.length; i++){
+    let liEl = document.createElement('li')
+    liEl.setAttribute('class', 'dogs-list__button')
+    liEl.innerText = data[i].name
+
+    liEl.addEventListener('click', function(){
+
+        let sectionEl = document.querySelector('.main__dog-section')
+        sectionEl.innerText = ''
+        let h2El = document.createElement('h2')
+        h2El.innerText = data[i].name
+        let imgEl = document.createElement('img')
+        imgEl.setAttribute('src', data[i].image)
+        imgEl.setAttribute('style','width:400px; height:300px;')
+        let biodivEl = document.createElement('div')
+        let h3El = document.createElement('h3')
+        h3El.innerText = 'bio'
+        let pinfoEl = document.createElement('p')
+        pinfoEl.innerText = data[i].bio
+        let divconfimrEl = document.createElement('div')
+        divconfimrEl.setAttribute('class', 'main__dog-section__btn')
+        let emEl = document.createElement('em')
+        emEl.innerText = 'Is naughty?'
+        let pconfirmEl = document.createElement('p')
+        let btbdog = document.createElement('button')
+        function dog(){
+            if (data[i].isGoodDog){return ' no'}
+            else{ return " yes"}
+        }
+        pconfirmEl.innerText = dog()
+        btbdog.innerText = data[i].isGoodDog ? 'good dog' : 'bad dog'
+        btbdog.addEventListener('click', function (){
+            data[i].isGoodDog = !data[i].isGoodDog
+            btbdog.innerText = data[i].isGoodDog ? 'good dog' : 'bad dog'
+            function dog2(){
+                if (data[i].isGoodDog){ return ' no '}
+                else{ return ' yes' } 
+                }
+                pconfirmEl.innerText = dog2()
+                pconfirmEl.prepend(emEl)
+            
+            }
+           
+        )
+        sectionEl.append(h2El,imgEl,biodivEl,divconfimrEl)
+        biodivEl.append(h3El,pinfoEl)
+        divconfimrEl.append(pconfirmEl,btbdog)
+        pconfirmEl.prepend(emEl)
+    })
+
+    ulEl.append(liEl )
+}
+
+
+
+
+// {
+//     id: 1,
+//     name: "Mr. Bonkers",
+//     bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+//             minima voluptates libero cumque rerum consequatur optio aliquid sint
+//             eum maxime illo laborum omnis quo ab rem cupiditate nulla
+//             perspiciatis ipsum!`,
+//     isGoodDog: true,
+//     image: "https://curriculum-content.s3.amazonaws.com/js/woof-woof/dog_1.jpg"
+//   }
+

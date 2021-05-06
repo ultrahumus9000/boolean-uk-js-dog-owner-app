@@ -44,9 +44,7 @@ img {
   grid-auto-columns: 150px;
   grid-auto-flow: column;
   column-gap: 10px;
-
   padding: 1rem;
-
   list-style-type: none;
   overflow-y: auto;
 }
@@ -54,7 +52,6 @@ img {
 .main {
   display: grid;
   grid-template-columns: minmax(300px, 500px);
-
   justify-content: center;
 
   margin: 3rem 0;
@@ -62,7 +59,6 @@ img {
 
 .main__dog-section {
   padding: 1rem;
-
   border: 1px solid var(--dark-text);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
