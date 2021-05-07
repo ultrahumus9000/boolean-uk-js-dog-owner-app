@@ -163,7 +163,7 @@ linewEl.addEventListener('click', function (){
             
     })
     ulEl.append(liEl)
-    formEl.reset()
+    
 }) 
 
 })
