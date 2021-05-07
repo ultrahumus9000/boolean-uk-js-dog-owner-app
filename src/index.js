@@ -67,8 +67,8 @@ for (let i = 0; i<data.length; i++){
         biodivEl.append(h3El,pinfoEl)
         divconfimrEl.append(pconfirmEl,btbdog)
         pconfirmEl.prepend(emEl)
+        
     })
-
     ulEl.append(liEl )
 }
 let linewEl = document.querySelector('.dogs-list__button--add')
@@ -79,6 +79,7 @@ linewEl.addEventListener('click', function (){
     sectionEl.innerText = ''
     let h2El = document.createElement('h2')
     h2El.innerText = 'Add a new Dog'
+
     let formEl = document.createElement('form')
     formEl.setAttribute('class','form')
 
@@ -114,24 +115,25 @@ linewEl.addEventListener('click', function (){
     submitInput.setAttribute('value',"Let's add a dog!")
     submitInput.setAttribute('class','form__button')
     formEl.append(nameLabel, nameinput, imageLabel,imageEl, biolabel, textEl,submitInput )
-    sectionEl .append(h2El,formEl)
+    sectionEl.append(h2El,formEl)
 
     formEl.addEventListener('submit', function (event){
+
         event.preventDefault()
         let liEl = document.createElement('li')
         liEl.setAttribute('class', 'dogs-list__button')
-        
         liEl.innerText = formEl.name.value
 
         liEl.addEventListener('click', function(){
             let sectionEl = document.querySelector('.main__dog-section')
             sectionEl.innerText = ''
             let h2El = document.createElement('h2')
-          
+         
             h2El.innerText = formEl.name.value
-            let imgEl = document.createElement('img')
-            
+            console.log(formEl.name.value)
+            let imgEl = document.createElement('img')   
             imgEl.setAttribute('src', formEl.image.value)
+            console.log(formEl.image.value)
             imgEl.setAttribute('style','width:400px; height:300px;')
             let biodivEl = document.createElement('div')
             let h3El = document.createElement('h3')
