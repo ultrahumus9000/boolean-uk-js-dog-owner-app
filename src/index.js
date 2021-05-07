@@ -71,6 +71,10 @@ for (let i = 0; i<data.length; i++){
     })
     ulEl.append(liEl )
 }
+
+
+
+
 let linewEl = document.querySelector('.dogs-list__button--add')
 
 linewEl.addEventListener('click', function (){
@@ -169,7 +173,7 @@ linewEl.addEventListener('click', function (){
             
     })
     ulEl.append(liEl)
-    
+    formEl.remove()
 }) 
 
 })
