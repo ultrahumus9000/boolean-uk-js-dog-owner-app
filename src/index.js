@@ -149,9 +149,15 @@ linewEl.addEventListener('click', function (){
             
             pconfirmEl.innerText = ' yes'
             btbdog.innerText = 'good dog'
-            btbdog.addEventListener('click', function (){
-                btbdog.innerText = 'bad dog'
-                pconfirmEl.innerText =' no'
+            let caseXY = true
+            btbdog.addEventListener('click', function (){ 
+                caseXY = !caseXY 
+                btbdog.innerText = caseXY ? 'good dog' : 'bad dog'
+                function dog2(){
+                    if (caseXY){ return ' no '}
+                    else{ return ' yes' } 
+                    }
+                pconfirmEl.innerText =dog2()
                 pconfirmEl.prepend(emEl) 
                 }
             
