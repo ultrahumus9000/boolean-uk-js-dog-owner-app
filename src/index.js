@@ -38,6 +38,7 @@ renderdogs(5)
 // create a singlecard
 
 function createSingleCard(dog){
+    
     let sectionEl = document.querySelector('.main__dog-section')
     sectionEl.innerText = ''
     let h2El = document.createElement('h2')
@@ -79,11 +80,15 @@ function nicedog(dog){
 let linewEl = document.querySelector('.dogs-list__button--add')
 
 linewEl.addEventListener('click', function (){
+    
     createForm()
+    
+    
     
 })
 
- function createForm(){
+ function createForm(dog){
+    
     let sectionEl = document.querySelector('.main__dog-section')
     sectionEl.innerText = ''
     let h2El = document.createElement('h2')
@@ -129,117 +134,27 @@ linewEl.addEventListener('click', function (){
     formEl.addEventListener('submit', function (event){
 
         event.preventDefault()
-        let dog = {
-            
-
-        }
-
-
         let liEl = document.createElement('li')
-        liEl.setAttribute('class', 'dogs-list__button')
+        liEl.setAttribute('class', 'dogs-list__button') 
         liEl.innerText = formEl.name.value
 
-        liEl.addEventListener('click', function(){
-            let sectionEl = document.querySelector('.main__dog-section')
-            sectionEl.innerText = ''
-            let h2El = document.createElement('h2')
-         
-            h2El.innerText = formEl.name.value
-            console.log(formEl.name.value)
-            let imgEl = document.createElement('img')   
-            imgEl.setAttribute('src', formEl.image.value)
-            console.log(formEl.image.value)
-            imgEl.setAttribute('style','width:400px; height:300px;')
-            let biodivEl = document.createElement('div')
-            let h3El = document.createElement('h3')
-            h3El.innerText = 'bio'
-            let pinfoEl = document.createElement('p')
-            pinfoEl.innerText = formEl.bio.value
-            let divconfimrEl = document.createElement('div')
-            divconfimrEl.setAttribute('class', 'main__dog-section__btn')
-            let emEl = document.createElement('em')
-            emEl.innerText = 'Is naughty?'
-            let pconfirmEl = document.createElement('p')
-            let btbdog = document.createElement('button')
+        liEl.addEventListener('click', function (){
+            let dog = {
+            name: formEl.name.value,
+            image: formEl.image.value,
+            bio: formEl.bio.value,
+            isGoodDog: true
+            }
+            createSingleCard(dog) 
             
-            pconfirmEl.innerText = ' yes'
-            btbdog.innerText = 'good dog'
-            let caseXY = true
-            btbdog.addEventListener('click', function (){ 
-                caseXY = !caseXY 
-                btbdog.innerText = caseXY ? 'good dog' : 'bad dog'
-                function dog2(){
-                    if (caseXY){ return ' no '}
-                    else{ return ' yes' } 
-                    }
-                pconfirmEl.innerText =dog2()
-                pconfirmEl.prepend(emEl) 
-                }
-            )
-            sectionEl.append(h2El,imgEl,biodivEl,divconfimrEl)
-            biodivEl.append(h3El,pinfoEl)
-            divconfimrEl.append(pconfirmEl,btbdog)
-            pconfirmEl.prepend(emEl)
-            
-    })
-    ulEl.append(liEl)
-    // formEl.reset() 
-})  
+        })
+
+        ulEl.append(liEl) 
+    
+}) 
+   formEl.reset()
+
 }
-
-
-
-
-// for (let i = 0; i<data.length; i++){
-//     let liEl = document.createElement('li')
-//     liEl.setAttribute('class', 'dogs-list__button')
-//     liEl.innerText = data[i].name
-
-//     liEl.addEventListener('click', function (){
-//         let sectionEl = document.querySelector('.main__dog-section')
-//         sectionEl.innerText = ''
-//         let h2El = document.createElement('h2')
-//         h2El.innerText = data[i].name
-//         let imgEl = document.createElement('img')
-//         imgEl.setAttribute('src', data[i].image)
-//         imgEl.setAttribute('style','width:400px; height:300px;')
-//         let biodivEl = document.createElement('div')
-//         let h3El = document.createElement('h3')
-//         h3El.innerText = 'bio'
-//         let pinfoEl = document.createElement('p')
-//         pinfoEl.innerText = data[i].bio
-//         let divconfimrEl = document.createElement('div')
-//         divconfimrEl.setAttribute('class', 'main__dog-section__btn')
-//         let emEl = document.createElement('em')
-//         emEl.innerText = 'Is naughty?'
-//         let pconfirmEl = document.createElement('p')
-//         let btbdog = document.createElement('button')
-//         function dog(){
-//             if (data[i].isGoodDog){return ' no'}
-//             else{ return " yes"}
-//         }
-//         pconfirmEl.innerText = dog()
-//         btbdog.innerText = data[i].isGoodDog ? 'good dog' : 'bad dog'
-//         btbdog.addEventListener('click', function (){
-//             data[i].isGoodDog = !data[i].isGoodDog
-//             btbdog.innerText = data[i].isGoodDog ? 'good dog' : 'bad dog'
-//             function dog2(){
-//                 if (data[i].isGoodDog){ return ' no '}
-//                 else{ return ' yes' } 
-//                 }
-//                 pconfirmEl.innerText = dog2()
-//                 pconfirmEl.prepend(emEl)
-//             }
-           
-//         )
-//         sectionEl.append(h2El,imgEl,biodivEl,divconfimrEl)
-//         biodivEl.append(h3El,pinfoEl)
-//         divconfimrEl.append(pconfirmEl,btbdog)
-//         pconfirmEl.prepend(emEl)
-        
-//     })
-//     ulEl.append(liEl )
-// }
 
 
 
