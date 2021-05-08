@@ -33,7 +33,7 @@ function renderdogs(num){
         ulEl.append(liEl )
     } 
 }
-renderdogs(6)
+renderdogs(5)
 
 // create a singlecard
 
@@ -74,7 +74,6 @@ function nicedog(dog){
     if (dog.isGoodDog){return ' no'}
     else{ return " yes"}
 }
-
 
 
 let linewEl = document.querySelector('.dogs-list__button--add')
@@ -130,6 +129,12 @@ linewEl.addEventListener('click', function (){
     formEl.addEventListener('submit', function (event){
 
         event.preventDefault()
+        let dog = {
+            
+
+        }
+
+
         let liEl = document.createElement('li')
         liEl.setAttribute('class', 'dogs-list__button')
         liEl.innerText = formEl.name.value
