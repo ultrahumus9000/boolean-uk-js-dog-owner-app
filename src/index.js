@@ -24,16 +24,19 @@ let ulEl= document.querySelector(".dogs-list")
 let mainEl = document.querySelector('.main')
 function renderdogs(num){
    for(let i=0; i<num; i++){
-        let liEl = document.createElement('li')
-        liEl.setAttribute('class', 'dogs-list__button')
-        liEl.innerText = data[i].name
-        liEl.addEventListener('click', function (){
-            createSingleCard(data[i])
-        })
-        ulEl.append(liEl )
+    renderdog(data[i])
     } 
 }
 renderdogs(5)
+function renderdog(dog){
+    let liEl = document.createElement('li')
+    liEl.setAttribute('class', 'dogs-list__button')
+    liEl.innerText = dog.name
+    liEl.addEventListener('click', function (){
+        createSingleCard(dog)
+    })
+    ulEl.append(liEl )
+}
 
 // create a singlecard
 
@@ -62,7 +65,6 @@ function createSingleCard(dog){
     btbdog.addEventListener('click', function (){
         dog.isGoodDog = !dog.isGoodDog
         createSingleCard(dog)
-        
         }
     )
     sectionEl.append(h2El,imgEl,biodivEl,divconfimrEl)
@@ -80,11 +82,7 @@ function nicedog(dog){
 let linewEl = document.querySelector('.dogs-list__button--add')
 
 linewEl.addEventListener('click', function (){
-    
-    createForm()
-    
-    
-    
+    createForm() 
 })
 
  function createForm(dog){
@@ -132,27 +130,18 @@ linewEl.addEventListener('click', function (){
     sectionEl.append(h2El,formEl)
 
     formEl.addEventListener('submit', function (event){
-
         event.preventDefault()
-        let liEl = document.createElement('li')
-        liEl.setAttribute('class', 'dogs-list__button') 
-        liEl.innerText = formEl.name.value
-
-        liEl.addEventListener('click', function (){
-            let dog = {
+        let dog = {
             name: formEl.name.value,
             image: formEl.image.value,
             bio: formEl.bio.value,
             isGoodDog: true
-            }
-            createSingleCard(dog) 
-            
-        })
-
-        ulEl.append(liEl) 
-    
+        }  
+        renderdog(dog)       
+        formEl.reset()
 }) 
-   formEl.reset()
+
+  
 
 }
 
