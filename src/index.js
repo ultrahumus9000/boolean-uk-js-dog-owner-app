@@ -140,9 +140,6 @@ linewEl.addEventListener('click', function (){
         renderdog(dog)       
         formEl.reset()
 }) 
-
-  
-
 }
 
 
